@@ -1,3 +1,9 @@
+import { Intro } from "./components/Intro";
+
 export const Home = () => {
-  return <div>index</div>;
+  return (
+    <main>
+      <Intro />
+    </main>
+  );
 };
