@@ -9,7 +9,14 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   -webkit-font-smoothing: antialiased;
+
   background: ${(props) => props.theme["background"]};
   font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+
+}
+
+html {
+  font-size: 62.5%;
 }
 `;
