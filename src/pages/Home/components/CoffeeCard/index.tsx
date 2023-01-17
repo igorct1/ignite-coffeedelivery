@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import {
-  CoffeCardContainer,
+  CoffeeCardContainer,
   CoffeeTags,
   CoffeeName,
   CoffeeDescription,
@@ -22,9 +22,9 @@ interface CoffeeProps {
   coffee: Coffee;
 }
 
-export function CoffeCard({ coffee }: CoffeeProps) {
+export function CoffeeCard({ coffee }: CoffeeProps) {
   return (
-    <CoffeCardContainer>
+    <CoffeeCardContainer>
       <img src={`/coffee-delivery/${coffee.photo}`} alt="" />
       <CoffeeTags>
         {coffee.tags.map((tag) => (
@@ -51,6 +51,6 @@ export function CoffeCard({ coffee }: CoffeeProps) {
           </button>
         </CoffeeWrapper>
       </CoffeeFooter>
-    </CoffeCardContainer>
+    </CoffeeCardContainer>
   );
 }

@@ -1,11 +1,11 @@
 import { Intro } from "./components/Intro";
-import { OurCoffes } from "./components/OurCoffes";
+import { OurCoffees } from "./components/OurCoffees";
 
 export const Home = () => {
   return (
     <main>
       <Intro />
-      <OurCoffes />
+      <OurCoffees />
     </main>
   );
 };

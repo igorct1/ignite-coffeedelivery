@@ -1,14 +1,14 @@
 import { OurCoffeesContainer, OurCoffeesContainerCards } from "./styles";
-import { coffes } from "./data/coffes";
-import { CoffeCard } from "../CoffeCard";
+import { coffees } from "./data/coffees";
+import { CoffeeCard } from "../CoffeeCard";
 
-export const OurCoffes = () => {
+export const OurCoffees = () => {
   return (
     <OurCoffeesContainer>
       <h1>Nossos cafés</h1>
       <OurCoffeesContainerCards>
-        {coffes.map((coffee) => (
-          <CoffeCard key={coffee.id} coffee={coffee} />
+        {coffees.map((coffee) => (
+          <CoffeeCard key={coffee.id} coffee={coffee} />
         ))}
       </OurCoffeesContainerCards>
     </OurCoffeesContainer>
