@@ -1,6 +1,7 @@
-import { ShoppingCart } from "phosphor-react";
+import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import {
   IntroAdvantages,
+  IntroAdvantagesItem,
   IntroCoffeeImage,
   IntroContainer,
   IntroInfo,
@@ -20,7 +21,32 @@ export function Intro() {
             hora.
           </p>
         </IntroTitle>
-        <IntroAdvantages></IntroAdvantages>
+        <IntroAdvantages>
+          <IntroAdvantagesItem backgroundColor="yellow-dark">
+            <span>
+              <ShoppingCart weight="fill" />
+            </span>
+            <p>Compra simples e segura</p>
+          </IntroAdvantagesItem>
+          <IntroAdvantagesItem backgroundColor="gray">
+            <span>
+              <Package weight="fill" />
+            </span>
+            <p>Embalagem mantém o café intacto</p>
+          </IntroAdvantagesItem>
+          <IntroAdvantagesItem backgroundColor="yellow">
+            <span>
+              <Timer weight="fill" />
+            </span>
+            <p>Entrega rápida e rastreada</p>
+          </IntroAdvantagesItem>
+          <IntroAdvantagesItem backgroundColor="purple">
+            <span>
+              <Coffee weight="fill" />
+            </span>
+            <p>O café chega fresquinho até você</p>
+          </IntroAdvantagesItem>
+        </IntroAdvantages>
       </IntroInfo>
       <IntroCoffeeImage>
         <img src={coffee} />
