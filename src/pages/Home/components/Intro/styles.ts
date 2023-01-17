@@ -4,7 +4,7 @@ export const IntroContainer = styled.section`
 
   gap: 5.6rem;
 
-  margin-top: 9.4rem;
+  padding: 9.4rem 0rem;
 `;
 export const IntroInfo = styled.div`
   max-width: 576px;

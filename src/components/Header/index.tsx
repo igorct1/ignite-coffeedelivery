@@ -11,7 +11,7 @@ export function Header() {
       <div className="user-info">
         <p className="user-location">
           <MapPin size={20} weight="fill" />
-          Porto Alegre, RS
+          São Paulo, SP
         </p>
         <a href="/cart" className="user-cart">
           <ShoppingCart size={20} weight="fill" />
