@@ -1,3 +1,4 @@
+import React from "react";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import {
   CoffeeCardContainer,
@@ -8,6 +9,7 @@ import {
   CoffeeQuantity,
   CoffeeWrapper,
 } from "./styles";
+import { CartContext } from "../../../../contexts/CartContext";
 
 export interface Coffee {
   id: number;
@@ -23,12 +25,33 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = React.useState(1);
+  const { addCoffeeToCart } = React.useContext(CartContext);
+
+  function onIncrease() {
+    setQuantity((state) => state + 1);
+  }
+
+  function onDecrease() {
+    if (quantity !== 1) {
+      setQuantity((state) => state - 1);
+    }
+  }
+
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
+  }
+
   return (
     <CoffeeCardContainer>
       <img src={`/coffee-delivery/${coffee.photo}`} alt="" />
       <CoffeeTags>
         {coffee.tags.map((tag) => (
-          <span>{tag}</span>
+          <span key={tag}>{tag}</span>
         ))}
       </CoffeeTags>
       <CoffeeName>{coffee.name}</CoffeeName>
@@ -42,11 +65,11 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         </div>
         <CoffeeWrapper>
           <CoffeeQuantity>
-            <button>{<Minus size={17} />}</button>
-            {1}
-            <button>{<Plus size={17} />}</button>
+            <button onClick={onDecrease}>{<Minus size={17} />}</button>
+            {quantity}
+            <button onClick={onIncrease}>{<Plus size={17} />}</button>
           </CoffeeQuantity>
-          <button className="cart">
+          <button onClick={handleAddToCart} className="cart">
             <ShoppingCart weight="fill" size={17} />
           </button>
         </CoffeeWrapper>
