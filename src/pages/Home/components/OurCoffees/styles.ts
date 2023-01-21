@@ -10,7 +10,7 @@ export const OurCoffeesContainer = styled.div`
 `;
 export const OurCoffeesContainerCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 
   margin-top: 3.4rem;
 

@@ -18,5 +18,13 @@ body {
 
 html {
   font-size: 62.5%;
+
+  @media(max-width: 1024px) {
+    font-size: 54.69%;
+  }
+
+  @media(max-width: 420px) {
+    font-size: 51%;
+  }
 }
 `;

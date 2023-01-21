@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const SelectedCoffeesContainer = styled.div``;
+export const SelectedCoffeesContainer = styled.div`
+  width: 100%;
+`;
 
 export const ConfirmSelectedItems = styled.div`
   margin-top: 1.6rem;
-  min-height: 20vh;
+
   background: ${(props) => props.theme["base-card"]};
 
   border-radius: 6px 44px 6px 44px;

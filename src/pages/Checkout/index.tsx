@@ -1,6 +1,6 @@
 import { CompleteOrder } from "./components/CompleteOrder";
 import { SelectedCoffees } from "./components/SelectedCoffees";
-import { CheckoutContainer } from "./styles";
+import { CheckoutContainer, FormContainer } from "./styles";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
 import { useForm, FormProvider } from "react-hook-form";
@@ -43,12 +43,12 @@ export function Checkout() {
 
   return (
     <FormProvider {...confirmOrderForm}>
-      <form onSubmit={handleSubmit(handleConfirmSubmit)}>
+      <FormContainer onSubmit={handleSubmit(handleConfirmSubmit)}>
         <CheckoutContainer>
           <CompleteOrder />
           <SelectedCoffees />
         </CheckoutContainer>
-      </form>
+      </FormContainer>
     </FormProvider>
   );
 }

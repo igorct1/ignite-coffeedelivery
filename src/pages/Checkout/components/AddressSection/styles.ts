@@ -29,4 +29,20 @@ export const AddressFormContainer = styled.div`
   .complement {
     grid-column: span 2;
   }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    .cep {
+      grid-column: 1;
+      max-width: 100%;
+    }
+
+    .street {
+      grid-column: 1;
+    }
+
+    .complement {
+      grid-column: 1;
+    }
+  }
 `;

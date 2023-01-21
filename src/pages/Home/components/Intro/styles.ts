@@ -1,10 +1,14 @@
 import styled from "styled-components";
 export const IntroContainer = styled.section`
   display: flex;
-
+  flex-wrap: wrap;
   gap: 5.6rem;
 
   padding: 9.4rem 0rem;
+
+  @media (max-width: 520px) {
+    padding: 2.6rem 0rem;
+  }
 `;
 export const IntroInfo = styled.div`
   max-width: 576px;
@@ -38,6 +42,11 @@ export const IntroAdvantages = styled.div`
   grid-template-columns: 240px 1fr;
 
   gap: 1.2rem 2rem;
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 `;
 
 const ADVANTAGES_BACKGROUND_COLOR = {
@@ -77,4 +86,8 @@ export const IntroAdvantagesItem = styled.div<BackgroundProps>`
     color: ${(props) => props.theme["base-text"]};
   }
 `;
-export const IntroCoffeeImage = styled.div``;
+export const IntroCoffeeImage = styled.div`
+  img {
+    max-width: 100%;
+  }
+`;

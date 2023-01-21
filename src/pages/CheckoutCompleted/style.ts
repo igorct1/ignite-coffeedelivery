@@ -7,6 +7,19 @@ interface BackgroundIconProps {
 export const CheckoutCompletedContainer = styled.div`
   margin-top: 8rem;
   color: ${(props) => props.theme["base-text"]};
+
+  img {
+    max-width: 100%;
+  }
+
+  @media (max-width: 1051px) {
+    img {
+      margin-top: 4rem;
+    }
+  }
+  @media (max-width: 520px) {
+    margin: 4rem 0rem;
+  }
 `;
 
 export const CheckoutCompletedTitle = styled.div`
@@ -24,6 +37,7 @@ export const CheckoutCompletedTitle = styled.div`
 export const CheckoutOrderInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const CheckoutOrderInfo = styled.div`
@@ -33,7 +47,7 @@ export const CheckoutOrderInfo = styled.div`
   border-radius: 6px 36px 6px 36px;
   position: relative;
   background: ${(props) => props.theme["background"]};
-  min-width: 52rem;
+  flex: 2 0 40rem;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
@@ -50,11 +64,12 @@ export const CheckoutOrderInfo = styled.div`
 
 export const CheckoutOrderInfoDiv = styled.div<BackgroundIconProps>`
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 
   > div {
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
   }
   > div p span {
     font-weight: 700;

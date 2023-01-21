@@ -19,7 +19,7 @@ export const InputFormItem = styled.input<InputContainerProps>`
   padding: 1.2rem;
   font-size: 1.4rem;
   background: ${(props) => props.theme["base-input"]};
-
+  max-width: 100%;
   border-radius: 4px;
   border: 1px solid ${(props) => props.theme["base-button"]};
   outline: none;

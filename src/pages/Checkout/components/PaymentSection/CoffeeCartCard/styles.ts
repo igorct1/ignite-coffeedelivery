@@ -16,12 +16,18 @@ export const SelectedCoffeeCard = styled.div`
     font-size: 1.6rem;
     font-weight: 700;
   }
+
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+    p {
+      margin-top: 2rem;
+    }
+  }
 `;
 
 export const CoffeeQuantityContainer = styled.div`
   display: flex;
   gap: 0.8rem;
-
   .remove {
     border: none;
     background: ${(props) => props.theme["base-button"]};
