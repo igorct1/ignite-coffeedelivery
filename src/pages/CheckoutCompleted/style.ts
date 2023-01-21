@@ -14,7 +14,7 @@ export const CheckoutCompletedContainer = styled.div`
 
   @media (max-width: 1051px) {
     img {
-      margin-top: 4rem;
+      margin-top: 6rem;
     }
   }
   @media (max-width: 520px) {
@@ -38,6 +38,7 @@ export const CheckoutOrderInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 0rem 10rem;
 `;
 
 export const CheckoutOrderInfo = styled.div`
@@ -69,7 +70,7 @@ export const CheckoutOrderInfoDiv = styled.div<BackgroundIconProps>`
   > div {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0;
   }
   > div p span {
     font-weight: 700;
