@@ -29,7 +29,7 @@ export const CheckoutOrderInfoContainer = styled.div`
 export const CheckoutOrderInfo = styled.div`
   padding: 4rem;
   margin-top: 4rem;
-  padding: 2.5rem;
+
   border-radius: 6px 36px 6px 36px;
   position: relative;
   background: ${(props) => props.theme["background"]};
@@ -58,10 +58,6 @@ export const CheckoutOrderInfoDiv = styled.div<BackgroundIconProps>`
   }
   > div p span {
     font-weight: 700;
-  }
-
-  svg {
-    color: red;
   }
 
   .icon {

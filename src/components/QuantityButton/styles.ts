@@ -13,6 +13,9 @@ export const CoffeeQuantity = styled.div`
     padding: 1.2rem 0.8rem;
     cursor: pointer;
 
+    color: ${(props) => props.theme["purple"]};
+  }
+  > button:hover {
     color: ${(props) => props.theme["purple-dark"]};
   }
 

@@ -6,15 +6,15 @@ import { PaymentMethodInput } from "./PaymentMethodInput";
 const paymentMethods = {
   credit: {
     label: "Cartão de crédito",
-    icon: <CreditCard size={15} />,
+    icon: <CreditCard size={15} color="#8047F8" />,
   },
   debit: {
     label: "Cartão de débito",
-    icon: <Bank size={15} />,
+    icon: <Bank size={15} color="#8047F8" />,
   },
   money: {
     label: "Dinheiro",
-    icon: <Money size={15} />,
+    icon: <Money size={15} color="#8047F8" />,
   },
 };
 

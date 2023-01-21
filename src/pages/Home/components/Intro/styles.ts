@@ -74,6 +74,7 @@ export const IntroAdvantagesItem = styled.div<BackgroundProps>`
     font-size: 1.6rem;
     font-family: "Roboto";
     line-height: 130%;
+    color: ${(props) => props.theme["base-text"]};
   }
 `;
 export const IntroCoffeeImage = styled.div``;
