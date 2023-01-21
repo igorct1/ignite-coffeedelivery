@@ -1,15 +1,16 @@
 import React from "react";
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "phosphor-react";
 import {
   CoffeeCardContainer,
   CoffeeTags,
   CoffeeName,
   CoffeeDescription,
   CoffeeFooter,
-  CoffeeQuantity,
   CoffeeWrapper,
 } from "./styles";
 import { CartContext } from "../../../../contexts/CartContext";
+import { formatPrice } from "../../../../utils/formatPrice";
+import { QuantityButton } from "../../../../components/QuantityButton";
 
 export interface Coffee {
   id: number;
@@ -28,11 +29,11 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
   const [quantity, setQuantity] = React.useState(1);
   const { addCoffeeToCart } = React.useContext(CartContext);
 
-  function onIncrease() {
+  function handleIncrease() {
     setQuantity((state) => state + 1);
   }
 
-  function onDecrease() {
+  function handleDecrease() {
     if (quantity !== 1) {
       setQuantity((state) => state - 1);
     }
@@ -59,16 +60,14 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
       <CoffeeFooter>
         <div className="price">
           <p>R$</p>
-          <span>
-            {coffee.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-          </span>
+          <span>{formatPrice(coffee.price)}</span>
         </div>
         <CoffeeWrapper>
-          <CoffeeQuantity>
-            <button onClick={onDecrease}>{<Minus size={17} />}</button>
-            {quantity}
-            <button onClick={onIncrease}>{<Plus size={17} />}</button>
-          </CoffeeQuantity>
+          <QuantityButton
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            quantity={quantity}
+          />
           <button onClick={handleAddToCart} className="cart">
             <ShoppingCart weight="fill" size={17} />
           </button>

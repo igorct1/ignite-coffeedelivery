@@ -95,20 +95,3 @@ export const CoffeeWrapper = styled.div`
     color: ${(props) => props.theme["white"]};
   }
 `;
-
-export const CoffeeQuantity = styled.div`
-  background: ${(props) => props.theme["base-button"]};
-
-  display: flex;
-  align-items: center;
-  border-radius: 6px;
-  gap: 0.8rem;
-  > button {
-    border: none;
-    background: none;
-    padding: 1.2rem 0.8rem;
-    cursor: pointer;
-
-    color: ${(props) => props.theme["purple-dark"]};
-  }
-`;

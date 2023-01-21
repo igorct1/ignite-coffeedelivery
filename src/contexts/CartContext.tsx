@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 export const CartContext = React.createContext({} as CartContextProviderType);
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
-interface CartItem extends Coffee {
+export interface CartItem extends Coffee {
   quantity: number;
 }
 
@@ -13,20 +13,77 @@ interface ChildrenProps {
 interface CartContextProviderType {
   cartItems: CartItem[];
   cartQuantity: number;
+  cartItemsPrice: number;
+  clearCart: () => void;
+  removeCartItem: (cartItemId: number) => void;
   addCoffeeToCart: (coffee: CartItem) => void;
+  changeCoffeeQuantity: (
+    coffeeItemId: number,
+    type: "increase" | "decrease"
+  ) => void;
 }
 
 export const CartContextStorage = ({ children }: ChildrenProps) => {
   const [cartItems, setCartItems] = React.useState<CartItem[]>([]);
+  const cartQuantity = cartItems.length;
+  const cartItemsPrice = cartItems.reduce((acc, item) => {
+    return acc + item.quantity * item.price;
+  }, 0);
 
-  function addCoffeeToCart(cartItem: CartItem) {
-    setCartItems((state) => [...state, cartItem]);
+  function changeCoffeeQuantity(
+    coffeeItemId: number,
+    type: "increase" | "decrease"
+  ) {
+    const newCartList = cartItems.map((cartItem) => {
+      if (cartItem.id === coffeeItemId) {
+        return {
+          ...cartItem,
+          quantity:
+            type === "increase" ? cartItem.quantity + 1 : cartItem.quantity - 1,
+        };
+      } else {
+        return cartItem;
+      }
+    });
+
+    setCartItems(newCartList);
   }
 
-  const cartQuantity = cartItems.length;
+  function addCoffeeToCart(cartItem: CartItem) {
+    const coffeeAlreadyExistsInCart = cartItems.findIndex(
+      (coffee) => cartItem.id === coffee.id
+    );
+
+    if (coffeeAlreadyExistsInCart < 0) {
+      setCartItems((state) => [...state, cartItem]);
+    }
+  }
+
+  function removeCartItem(cartItemId: number) {
+    const newCartList = cartItems.filter((item) => {
+      if (item.id !== cartItemId) {
+        return item;
+      }
+    });
+    setCartItems(newCartList);
+  }
+
+  function clearCart() {
+    setCartItems([]);
+  }
 
   return (
-    <CartContext.Provider value={{ cartItems, addCoffeeToCart, cartQuantity }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        cartQuantity,
+        addCoffeeToCart,
+        removeCartItem,
+        cartItemsPrice,
+        changeCoffeeQuantity,
+        clearCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
