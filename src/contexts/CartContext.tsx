@@ -31,16 +31,13 @@ export const CartContextStorage = ({ children }: ChildrenProps) => {
     if (storedItems) {
       return JSON.parse(storedItems);
     }
+
     return [];
   });
   const cartQuantity = cartItems.length;
   const cartItemsPrice = cartItems.reduce((acc, item) => {
     return acc + item.quantity * item.price;
   }, 0);
-
-  React.useEffect(() => {
-    localStorage.setItem(LOCALSTORAGE_COFFEE_KEY, JSON.stringify(cartItems));
-  }, [cartItems]);
 
   function changeCoffeeQuantity(
     coffeeItemId: number,
@@ -51,7 +48,11 @@ export const CartContextStorage = ({ children }: ChildrenProps) => {
         return {
           ...cartItem,
           quantity:
-            type === "increase" ? cartItem.quantity + 1 : cartItem.quantity - 1,
+            type === "increase"
+              ? cartItem.quantity + 1
+              : cartItem.quantity > 1
+              ? cartItem.quantity - 1
+              : cartItem.quantity,
         };
       } else {
         return cartItem;
@@ -97,6 +98,10 @@ export const CartContextStorage = ({ children }: ChildrenProps) => {
   function clearCart() {
     setCartItems([]);
   }
+
+  React.useEffect(() => {
+    localStorage.setItem(LOCALSTORAGE_COFFEE_KEY, JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
