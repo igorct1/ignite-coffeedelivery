@@ -45,7 +45,6 @@ export const CartContextStorage = ({ children }: ChildrenProps) => {
         return cartItem;
       }
     });
-
     setCartItems(newCartList);
   }
 
